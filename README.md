@@ -127,6 +127,6 @@ graph TD;
 
 ## 👨‍💻 Autor
 
-Feito por [Seu Nome](https://github.com/Manelima).
+Feito por [Manelima](https://github.com/Manelima).
 
 [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/emanuel-ltda/)
