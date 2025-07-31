@@ -24,7 +24,7 @@ public class Main {
         final var positions = Stream.of(args)
                 .collect(toMap(
                         k -> k.split(";")[0],
-                        v -> v.split(";")[1]
+                        k -> k.split(";")[1]
                 ));
         var option = -1;
         while (true){
@@ -64,11 +64,24 @@ public class Main {
         for (int i = 0; i < BOARD_LIMIT; i++) {
             spaces.add(new ArrayList<>());
             for (int j = 0; j < BOARD_LIMIT; j++) {
-                var positionConfig = positions.get("%s,%s".formatted(i, j));
-                var expected = Integer.parseInt(positionConfig.split(",")[0]);
-                var fixed = Boolean.parseBoolean(positionConfig.split(",")[1]);
-                var currentSpace = new Space(expected, fixed);
-                spaces.get(i).add(currentSpace);
+                var positionKey = String.format("%s,%s", i, j);
+                var positionConfig = positions.get(positionKey);
+
+                // Verifica se a configuração para a posição atual existe
+                if (positionConfig != null && !positionConfig.isEmpty()) {
+                    var configParts = positionConfig.split(",");
+                    var expected = Integer.parseInt(configParts[0]);
+                    var fixed = Boolean.parseBoolean(configParts[1]);
+                    var currentSpace = new Space(expected, fixed);
+                    spaces.get(i).add(currentSpace);
+                } else {
+                    // Se não houver configuração, cria um espaço vazio e não fixo.
+                    // Estou assumindo que um valor '0' representa uma célula vazia.
+                    // Se sua classe 'Space' representar uma célula vazia de outra forma,
+                    // você pode precisar ajustar a linha abaixo.
+                    var emptySpace = new Space(0, false);
+                    spaces.get(i).add(emptySpace);
+                }
             }
         }
 

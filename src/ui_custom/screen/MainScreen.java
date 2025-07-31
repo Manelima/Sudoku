@@ -102,7 +102,7 @@ public class MainScreen {
             var gameStatus = boardService.getStatus();
             var message = switch (gameStatus){
                 case NON_STARTED -> "O jogo não foi iniciado";
-                case INCOMPLETE -> "O jogo está imcompleto";
+                case INCOMPLETE -> "O jogo está incompleto";
                 case COMPLETE -> "O jogo está completo";
             };
             message += hasErrors ? " e contém erros" : " e não contém erros";
