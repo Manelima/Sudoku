@@ -108,7 +108,7 @@ classDiagram
 
 Este fluxograma demonstra o ciclo de vida da interação do usuário com o jogo no terminal.
 
-```mermaid
+``mermaid
 graph TD;
     A[Início] --> B{Exibir Menu};
     B --> C{Usuário escolhe opção};
@@ -123,7 +123,7 @@ graph TD;
     F --> B;
     G --> B;
     H --> B;
-```
+``
 
 ## 👨‍💻 Autor
 
